@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
+ruby '2.3.3'
 
-gem 'github-pages', '96', group: :jekyll_plugins
-gem 'rake', '10.4.2'
-gem 'scss_lint', '0.38.0'
-gem 'w3c_validators', '1.1.1'
-gem 'html-proofer', '3.0.6'
-gem 'rubocop', '0.24.1'
-gem 'rubocop-rspec', '1.2.1'
+gem 'github-pages', '112', group: :jekyll_plugins
+gem 'rake', '12.0.0'
+gem 'scss_lint', '0.51.0'
+gem 'w3c_validators', '1.3.1'
+gem 'html-proofer', '3.4.0'
+gem 'rubocop', '0.46.0'
+gem 'rubocop-rspec', '1.9.0'
