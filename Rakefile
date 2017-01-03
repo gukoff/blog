@@ -154,11 +154,11 @@ task orphans: [:build] do
     array + Nokogiri::HTML(File.read(f)).xpath('//a/@href').to_a.map(&:to_s)
   end
   links = links
-    .map { |a| a.gsub(/^\//, 'http://bloghacks.yegor256.com/') }
-    .reject { |a| !a.start_with? 'http://bloghacks.yegor256.com/' }
+    .map { |a| a.gsub(/^\//, 'http://www.gukow.com/') }
+    .reject { |a| !a.start_with? 'http://www.gukow.com/' }
     .map { |a| a.gsub(/#.*/, '') }
   links += Dir['_site/**/*.html']
-    .map { |f| f.gsub(/_site/, 'http://bloghacks.yegor256.com') }
+    .map { |f| f.gsub(/_site/, 'http://www.gukow.com') }
   counts = {}
   links
     .reject { |a| !a.match %r{.*/[0-9]{4}/[0-9]{2}/[0-9]{2}/.*} }
