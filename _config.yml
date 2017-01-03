@@ -1,18 +1,16 @@
-title: 256 Bloghacks Demo
-email: me@yegor256.com
+title: Title Demo
+email: gukkos@gmail.com
 description: >
-  This site is a static blog for Jekyll and GitHub Pages,
-  a demo for "256 Bloghacks" book by Yegor Bugayenko
+  This site is a static blog on Jekyll and GitHub Pages
 baseurl: ""
-url: "http://bloghacks.yegor256.com"
-twitter_username: yegor256
-github_username: yegor256
+url: "http://www.gukow.com"
+github_username: gukoff
 markdown: kramdown
 author:
-  name: "Yegor Bugayenko"
-  email: me@yegor256.com
+  name: "Konstantin Gukov"
+  email: gukkos@gmail.com
 encoding: utf-8
-timezone: America/San_Francisco
+timezone: Asia/Yekaterinburg
 permalink: :year/:month/:day/:title.html
 exclude:
   - README.md
@@ -31,8 +29,8 @@ paginate_path: "p/:num"
 excerpt_separator: <!--more-->
 
 feed:
-  title: bloghacks.yegor256.com
-  subtitle: 256 Bloghacks Demo
+  title: gukow.com
+  subtitle: Subtitle Demo
   path: rss.xml
 
 sass:
