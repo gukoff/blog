@@ -37,7 +37,7 @@ end
 
 desc 'Lint SASS sources'
 SCSSLint::RakeTask.new do |t|
-  f = Tempfile.new(['bloghacks-', '.scss'])
+  f = File.new(Dir::Tmpname.create('bloghacks') {}, 'w')
   f << File.open('css/main.scss').drop(2).join("\n")
   f.flush
   f.close
@@ -155,10 +155,10 @@ task orphans: [:build] do
   end
   links = links
     .map { |a| a.gsub(/^\//, 'http://www.gukow.com/') }
-    .reject { |a| !a.start_with? 'http://www.gukow.com/' }
+    .reject { |a| !a.start_with? 'http://www.guk.com/' }
     .map { |a| a.gsub(/#.*/, '') }
   links += Dir['_site/**/*.html']
-    .map { |f| f.gsub(/_site/, 'http://www.gukow.com') }
+    .map { |f| f.gsub(/_site/, 'http://bloghacks.yegor256.com') }
   counts = {}
   links
     .reject { |a| !a.match %r{.*/[0-9]{4}/[0-9]{2}/[0-9]{2}/.*} }
