@@ -10,9 +10,8 @@ keywords:
 ---
 
 
-My **first** blog post on this demo blog. Don't
-take it serious.
+My **test** blog post.
 
 <!--more-->
 
-There is nothing more. 
+Nothing more yet. 
