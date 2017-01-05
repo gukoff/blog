@@ -177,6 +177,6 @@ end
 
 desc 'Run RuboCop on all Ruby files'
 RuboCop::RakeTask.new do |t|
-  t.fail_on_error = false
+  t.fail_on_error = true
   t.requires << 'rubocop-rspec'
 end
