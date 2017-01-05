@@ -17,5 +17,5 @@ THIRD ONE.
 
 <!--more-->
 
-The first post is [here]({% post_url /2016/2016-09-12-first-post%}).
-The second post is [here]({% post_url /2016/2016-09-13-second %}).
+The first post is [here]({% post_url /2017/2016-09-12-first-post%}).
+The second post is [here]({% post_url /2017/2016-09-13-second %}).

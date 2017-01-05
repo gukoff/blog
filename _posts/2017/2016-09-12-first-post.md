@@ -19,4 +19,4 @@ take it serious.
 <!--more-->
 
 There is nothing more. 
-But the second post is [here]({% post_url /2016/2016-09-13-second %}).
+But the second post is [here]({% post_url /2017/2016-09-13-second %}).
