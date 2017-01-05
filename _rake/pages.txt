@@ -1,10 +1,11 @@
 CNAME
 robots.txt
-about.html
+about-me.html
 404.html
 favicon.ico
 rss.xml
 sitemap.xml
 css/main.css
-images/tomato.svg
-2017/01/04/first-post.html
+css/font-awesome.min.css
+fonts/FontAwesome.otf
+images/photo.jpg

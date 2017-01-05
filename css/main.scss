@@ -5,6 +5,7 @@
 @import 'https://fonts.googleapis.com/css?family=Lora';
 
 $black: #000;
+$white: #fff;
 
 %gray { color: lighten($black, 50); }
 
@@ -109,12 +110,12 @@ code {
 
 
 .icon {
-  color: #000000;
+  color: $black;
   font-size: 1.25em;
 }
 
 .black-link {
-  color: #000000;
+  color: $black;
   text-decoration: underline;
 }
 

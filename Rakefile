@@ -101,7 +101,11 @@ task proofer: [:build] do
     '_site',
     log_level: :warn,
     check_favicon: true,
-    check_html: true
+    check_html: true,
+    url_ignore: [
+      'https://www.facebook.com/gukoff',
+      'https://www.linkedin.com/in/gukov'
+    ]
   ).run
   done 'HTML passed through html-proofer'
 end
@@ -135,11 +139,21 @@ task ping: [:build] do
     array + Nokogiri::HTML(File.read(f)).xpath(
       '//a/@href[starts-with(.,"http://") or starts-with(.,"https://")]'
     ).to_a.map(&:to_s)
-  end.uniq
-  links.map { |u| URI.parse(u) }.each do |uri|
+  end
+
+  links = links.reject do |u|
+    ![
+      'https://www.facebook.com/gukoff',
+      'https://www.linkedin.com/in/gukov'
+    ].index(u).nil?
+  end
+
+  links
+    .uniq
+    .map { |u| URI.parse(u) }
+    .each do |uri|
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true if uri.port == 443
-
     data = http.head(uri.request_uri)
     data = http.get(uri.request_uri) if data.code == '405'
 
