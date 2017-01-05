@@ -139,7 +139,10 @@ task ping: [:build] do
   links.map { |u| URI.parse(u) }.each do |uri|
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true if uri.port == 443
+
     data = http.head(uri.request_uri)
+    data = http.get(uri.request_uri) if data.code == '405'
+
     puts "#{uri}: #{data.code}"
     raise "URI #{uri} is not OK" unless data.code == '200'
   end
@@ -151,17 +154,20 @@ task orphans: [:build] do
   links = Dir['_site/**/*.html'].reduce([]) do |array, f|
     array + Nokogiri::HTML(File.read(f)).xpath('//a/@href').to_a.map(&:to_s)
   end
+
   site_url = 'http://www.gukow.com/'
-  links = links
-          .map { |a| a.gsub(%r{^/}, site_url) }
-          .reject { |a| !a.start_with? site_url }
-          .map { |a| a.gsub(/#.*/, '') }
-  links += Dir['_site/**/*.html']
-           .map { |f| f.gsub(%r{_site/}, site_url) }
+  links = (
+    links
+      .map { |link| link.gsub(%r{^/}, site_url).gsub(/#.*/, '') }
+      .reject { |link| !link.start_with? site_url } +
+    Dir['_site/**/*.html'].map { |f| f.gsub(%r{_site/}, site_url) }
+  )
+
   counts = {}
   links
     .reject { |a| !a.match %r{.*/[0-9]{4}/[0-9]{2}/[0-9]{2}/.*} }
     .group_by(&:itself).each { |k, v| counts[k] = v.length }
+
   orphans = 0
   counts.each do |k, v|
     if v < 2
