@@ -89,6 +89,7 @@ article {
   }
 }
 
+
 footer {
   @extend %gray;
   @extend %center;
@@ -106,3 +107,17 @@ code {
   margin: 4em 0;
 }
 
+
+.icon {
+  color: #000000;
+  font-size: 1.25em;
+}
+
+.black-link {
+  color: #000000;
+  text-decoration: underline;
+}
+
+.icon-link {
+  text-decoration: none;
+}
